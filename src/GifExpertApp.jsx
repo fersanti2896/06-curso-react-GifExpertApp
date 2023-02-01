@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = () => {
-    const [ categories, setCategories ] = useState([ 'React', 'Angular', 'Vue' ]);
+    const [ categories, setCategories ] = useState([ 'Gato con Botas' ]);
     
     /**
      * Función que agrega una categoría al arreglo de categorías.
@@ -18,19 +19,12 @@ export const GifExpertApp = () => {
 
     return (
         <>
-            {/* Title */}
             <h1>GifExpertApp</h1>
 
-            {/* Input */}
             <AddCategory newCategory={ onAddCategory }/>
 
-            {/* Listado de Gifs */}
-            <ol>
-                { categories.map( cat => {
-                    return <li key={ cat }>{ cat }.</li>
-                } ) }
-            </ol>
-                {/* Gif Item */}
+            { categories.map( cat => ( <GifGrid key={ cat } category={ cat } /> ) )}
+            
         </>
     )
 }
