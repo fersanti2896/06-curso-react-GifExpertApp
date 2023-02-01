@@ -1,10 +1,19 @@
 import { useState } from 'react';
+import { AddCategory } from './components/AddCategory';
 
 export const GifExpertApp = () => {
     const [ categories, setCategories ] = useState([ 'React', 'Angular', 'Vue' ]);
     
-    const addCategory = () => {
-        setCategories([ ...categories, 'Entity Framework']);
+    /**
+     * Función que agrega una categoría al arreglo de categorías.
+     * @param {string} newCategory Ejemplo: Shrek
+     */
+    const onAddCategory = ( newCategory ) => {
+        const cleanCategory = newCategory[0].toUpperCase() + newCategory.substring(1).toLowerCase();
+
+        if (categories.includes(cleanCategory)) return;
+
+        setCategories([ ...categories, cleanCategory]);
     }
 
     return (
@@ -13,9 +22,9 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             {/* Input */}
+            <AddCategory newCategory={ onAddCategory }/>
 
             {/* Listado de Gifs */}
-            <button onClick={ addCategory }>Agregar</button>
             <ol>
                 { categories.map( cat => {
                     return <li key={ cat }>{ cat }.</li>
