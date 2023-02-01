@@ -1,4 +1,4 @@
-# Sección 5 - GifExpertApp
+# Sección 6 - GifExpertApp
 ___
 
 Se crea una aplicación con React consumiento la API de `Giphy`, los temas que se abarcan en esta sección son: 
