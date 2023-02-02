@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { GifGridItem } from './GifGridItem';
@@ -10,6 +9,8 @@ export const GifGrid = ({ category }) => {
     return (
         <>
             <h5>{ category }</h5>
+            { isLoading && (<h5>Cargando...</h5>) }
+
             <div className='card-grid'>
                 { 
                     images.map( (image) => ( 
