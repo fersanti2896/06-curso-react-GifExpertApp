@@ -1,5 +1,4 @@
 
-
 export const GifGridItem = ({ title, url }) => {
     return (
         <>
