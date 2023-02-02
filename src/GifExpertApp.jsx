@@ -3,7 +3,7 @@ import { AddCategory } from './components/AddCategory';
 import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = () => {
-    const [ categories, setCategories ] = useState([ 'Gato con Botas' ]);
+    const [ categories, setCategories ] = useState([ 'Shrek' ]);
     
     /**
      * Función que agrega una categoría al arreglo de categorías.

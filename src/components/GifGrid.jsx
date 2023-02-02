@@ -2,27 +2,14 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { GifGridItem } from './GifGridItem';
-import { getGifs } from '../helpers/getGifs';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const GifGrid = ({ category }) => {
-    const [images, setImages] = useState([]);
-
-    /**
-     * Funcón que obtiene las imagenes y la actualiza al useState.
-     */
-    const getImages = async() => {
-        const newImages = await getGifs( category );
-
-        setImages(newImages);
-    } 
-
-    useEffect(() => {
-        getImages();    
-    }, []);
+    const { images, isLoading } = useFetchGifs( category );
     
     return (
         <>
-            <h6>{ category }</h6>
+            <h5>{ category }</h5>
             <div className='card-grid'>
                 { 
                     images.map( (image) => ( 
