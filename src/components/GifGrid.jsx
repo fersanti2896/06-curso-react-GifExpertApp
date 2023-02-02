@@ -1,19 +1,37 @@
-import { useEffect } from 'react';
-import PropTypes, { func } from 'prop-types';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
+import { GifGridItem } from './GifGridItem';
 import { getGifs } from '../helpers/getGifs';
 
-
 export const GifGrid = ({ category }) => {
+    const [images, setImages] = useState([]);
+
+    /**
+     * Funcón que obtiene las imagenes y la actualiza al useState.
+     */
+    const getImages = async() => {
+        const newImages = await getGifs( category );
+
+        setImages(newImages);
+    } 
 
     useEffect(() => {
-        getGifs(category);    
+        getImages();    
     }, []);
     
     return (
         <>
-            <h3>{ category }</h3>
-            <p>Hola mundo</p>
+            <h6>{ category }</h6>
+            <div className='card-grid'>
+                { 
+                    images.map( (image) => ( 
+                        <GifGridItem key={ image.id } 
+                                     title={ image.title }
+                                     url={ image.url } /> 
+                    ) ) 
+                }
+            </div>
         </>
     )
 }
