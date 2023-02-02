@@ -11,3 +11,11 @@ Se crea una aplicación con React consumiento la API de `Giphy`, los temas que s
 - Enviar métodos como argumentos.
 - Crear listados.
 - Consumiendo API de Giphy.
+- Desplegar la aplicación React. 
+- Generar build de producción `GifExpertApp`.
+- Uso de Github Pages.
+
+URL de la aplicación desplegada en `Netlify`:   
+
+    https://gifexpert-react-vite.netlify.app/
+
